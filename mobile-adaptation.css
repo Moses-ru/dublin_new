@@ -1,0 +1,257 @@
+/* --- Мобильное нижнее меню — решение всех проблем --- */
+@media (max-width: 900px) {
+  html, body {
+    overflow: auto !important;
+    height: 100%;
+  }
+  .menu {
+    /* Нижнее фиксированное меню */
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto !important;
+    width: 85vw;
+    height: 64px;
+    margin: 0 auto !important;
+    padding: 0 12px;
+    background: rgba(44,44,44,0.94);
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -2px 14px rgba(0,0,0,0.18);
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2000;
+    gap: 0;
+    overflow: visible;
+    list-style: none;
+    /* Убираем старое позиционирование */
+    transform: none !important;
+    top: auto !important;
+    left: 0 !important;
+  }
+  .menu li {
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 1 1 0;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    list-style: none;
+  }
+  .menu a {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: none;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    color: #bbb;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+  }
+  .menu a img {
+    width: 29px !important;
+    height: 29px !important;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .menu a.active,
+  .menu a:hover {
+    color: #fff !important;
+    background: #55555544;
+    transform: scale(1.14);
+  }
+  .menu a i {
+    font-size: 28px;
+    color: inherit;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .menu a.active i,
+  .menu a:hover i {
+    color: #fff !important;
+    transform: scale(1.09);
+  }
+  /* Убираем вертикальные отступы между li (были для бокового меню) */
+  .menu li {
+    margin: 0 !important;
+  }
+  /* Чтобы контент не уходил под меню */
+  .pages, .page {
+    padding-bottom: 74px !important;
+    box-sizing: border-box;
+  }
+
+
+
+
+.restaurant-menu {
+    width: 95vw;
+    max-width: 520px;
+    min-width: 210px;
+    font-size: 0.92em;
+    margin: 16px auto 0 auto;
+    padding: 8px 2vw;
+    min-height: 180px;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  /* Горизонтальный скролл для табов */
+  .categories-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 6px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+
+
+  .categories-tabs .category-toggle {
+    font-size: 0.7em !important;
+    min-width: 76px;
+    padding: 6px 7px;
+  }
+  .categories-tabs .category-toggle i {
+    font-size: 10px;
+    margin-right: 5px;
+  }
+}
+
+
+
+
+
+  .categories-tabs::-webkit-scrollbar { display: none; }
+
+  /* Кнопки табов */
+  .category-toggle {
+    flex: 0 0 auto;
+    min-width: 90px;
+    font-size: 0.95em;
+    padding: 7px 10px;
+    border-radius: 6px;
+    margin: 0;
+    background: #444;
+    color: #ffc107;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+  }
+  .category-toggle.active {
+    background: #ffc107;
+    color: #222;
+  }
+  .category-toggle i {
+    font-size: 15px;
+    margin-right: 6px;
+  }
+  .category-toggle:active {
+    background: #ffe082;
+    color: #111;
+  }
+
+  /* Список внутри категории — всегда одна колонка на мобиле */
+  .categories-content {
+    min-height: 60px;
+  }
+  .category-list,
+  .category-list.active {
+    column-count: 1 !important;
+    margin-top: 3px;
+    padding-left: 0;
+    font-size: 0.98em;
+    max-height: none;
+    opacity: 1;
+    list-style: none;
+  }
+  .category-list li {
+    padding: 5px 0 2px 0;
+    font-size: 0.98em;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .category-list .description {
+    font-size: 0.92em;
+    color: #d9d7c2;
+    margin-bottom: 7px;
+    margin-top: 0;
+    font-style: normal;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Для очень маленьких экранов */
+@media (max-width: 420px) {
+  .menu {
+    height: 52px;
+    padding: 0 3px;
+    border-radius: 13px 13px 0 0;
+  }
+  .menu a {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+  .menu a img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .menu a i {
+    font-size: 18px;
+    width: 26px;
+    height: 26px;
+  }
+
+
+
+
+
+  .restaurant-menu {
+    font-size: 0.88em;
+    width: 94vw;
+    min-width: 0;
+    padding: 5px 2vw;
+  }
+  .category-toggle {
+    min-width: 74px;
+    font-size: 0.92em;
+    padding: 6px 6px;
+  }
+  .category-list li {
+    font-size: 0.94em;
+    padding: 4px 0 2px 0;
+  }
+}
