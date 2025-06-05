@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Анимированное меню</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
+
+<link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+      href="/css/app-wa-86cd56275caec687041f80b17dc62e32.css?vsn=d"
+    >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-light.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-light.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-light.css"
+      >
+
+
+
+
+
+
+
+  
+  
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Grandis';
+      background: #111;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .menu {
+      position: fixed;
+      top: 50%;
+      left: 50px;
+      transform: translateY(-50%);
+      list-style: none;
+      padding: 15px 20px;
+      margin: 0;
+      z-index: 10;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #4444448c;  /* темно-серый фон */
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.199);
+    }
+
+
+
+    .menu li a {
+      
+      transform: translateX(-20px);
+      animation: fadeInLeft 0.6s ease forwards;
+    }
+
+    .menu li:nth-child(1) a { animation-delay: 0.1s; }
+    .menu li:nth-child(2) a { animation-delay: 0.2s; }
+    .menu li:nth-child(3) a { animation-delay: 0.3s; }
+    .menu li:nth-child(4) a { animation-delay: 0.4s; }
+    .menu li:nth-child(5) a { animation-delay: 0.5s; }
+    .menu li:nth-child(6) a { animation-delay: 0.6s; }
+
+    @keyframes fadeInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .menu a i {
+      font-size: 32px;
+      color: #888;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .menu a.active i {
+      color: #fff;
+      transform: scale(1.2);
+    }
+
+    .menu a:hover i {
+      color: #fff;
+      transform: scale(1.2);
+    }
+
+
+
+    .menu li {
+      margin: 30px 0;
+    }
+
+    .menu a img {
+      font-size: 32px;
+      color: #888; /* более серый по умолчанию */
+      text-decoration: none;
+      transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      filter: grayscale(100%) brightness(0.7);
+    }
+
+    .menu a {
+      font-size: 32px;
+      color: #888; /* более серый по умолчанию */
+      text-decoration: none;
+      transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+    }
+
+    .menu a.active {
+      color: #fff; /* активная кнопка — белая */
+      transform: scale(1.2);
+    }
+
+    .menu a.active img {
+      filter: grayscale(0%) brightness(1);
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    .menu a:hover {
+     
+      color: #fff;
+      transform: scale(1.1);
+      filter: grayscale(0%) brightness(1);
+    }
+
+    .pages {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+      background: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: all 0.8s ease;
+      z-index: 1;
+    }
+
+    .page .icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    .page .title {
+      font-size: 38px;
+      font-weight: bold;
+    }
+
+    .page .hint {
+      font-size: 14px;
+      font-weight: normal;
+      margin-top: 10px;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .page .hint a {
+      color: yellow;
+      text-decoration: none;
+    }
+
+    .page .hint a:hover {
+      color: white;
+    }
+
+    .page.active {
+      left: 0;
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+      transition: left 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+    }
+
+
+    .menu-toggle {
+      margin-top: 30px;
+      background: #ffc107;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      color: #111;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      background: #e0a800;
+    }
+
+    .map-box {
+      width: 100%;
+      max-width: 800px;
+      margin: 30px auto 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .restaurant-menu {
+      max-height: 60vh;
+      overflow-y: auto;
+      margin-top: 30px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 8px;
+      padding: 10px 20px;
+      max-width: 700px;
+      color: #fff;
+      font-size: 22px;
+    }
+
+    .categories-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .category-toggle {
+      background: #444;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 5px;
+      color: #ffc107;
+      filter: none !important;
+      opacity: 1 !important;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      flex: 1 1 auto;
+      min-width: 140px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .category-toggle:hover {
+      background: #555;
+      color: #ffea00;
+    }
+
+    .category-toggle.active {
+      background: #ffc107;
+      color: #111;
+      cursor: default;
+    }
+
+    .categories-content {
+      min-height: 150px;
+    }
+
+    .category-list {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding-left: 20px;
+      margin: 0;
+      list-style: none;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+
+      /* для длинных списков добавим колонки */
+      column-count: 1;          /* по умолчанию 1 колонка */
+      column-gap: 2em;         /* расстояние между колонками */
+    }
+
+    .category-list .item {
+      break-inside: avoid;
+      /* для браузеров на базе Webkit */
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      padding-bottom: 0.5em; /* небольшой отступ между элементами */
+    }
+
+    /* Когда список активен и большой — 2 колонки */
+    .category-list.active {
+      max-height: none; /* больше, чем самый длинный список */
+      opacity: 1;
+      margin-top: 10px;
+      column-count: 2; /* вот тут переход в 2 колонки */
+    }
+
+    .category-list .description {
+      font-size: 10px;
+      color: #ccccccd7;
+      margin-top: 4px;
+      line-height: 1.3;
+      font-style: normal;
+      margin-bottom: 15px;
+    }
+
+    .category-toggle i {
+      margin-right: 8px;
+      font-size: 15px; /* или больше, по желанию */
+      margin-right: 8px; /* немного отступа справа от иконки */
+      transition: transform 0.3s ease;
+      display: inline-block;
+      color: #ffc107;
+      filter: none !important;
+      opacity: 1 !important;
+      transition: color 0.3s ease
+    }
+
+    /* Анимация иконки: при активной кнопке иконка слегка прыгает */
+    .category-toggle.active i {
+      animation: jump 0.6s ease;
+      color: #111; /* цвет текста активной кнопки */
+      opacity: 1 !important;
+      filter: none !important;
+    }
+
+    @keyframes jump {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-6px) scale(1.2); }
+      100% { transform: translateY(0); }
+    }
+
+    .menu a.jump {
+      animation: jump 0.5s ease-in-out;
+    }
+
+
+    /* Индивидуальные фоны */
+    #p1 {
+      background-image: url(photo2.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    #p2 {
+      background-image: url(bar.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+    
+    #p3 {
+      background-image: url(kitchen.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    #p4 {
+      background-image: url(mapp\ \(2\).jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    #p5 {
+      background-image: url(soc.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+
+    #p6 {
+    
+      background-image: url(hap.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat; /* или background-image */
+    }
+
+    #t6:target #p6 {
+      transform: translateX(-190%);
+      transition-delay: 0.4s;
+    }
+    #t6:target #p1 {
+      background: black;
+    }
+    #t6:target #p1 .icon {
+      filter: blur(3px);
+    }
+    #t6:target #menu .icon {
+      transform: scale(0.6);
+      transition-delay: 0.25s;
+    }
+    #t6:target #seis {
+      transform: scale(1.2) !important;
+      color: #fff; /* активная кнопка */
+    }
+    #t6:target .page#p6 .icon {
+      transform: translate(-50%, -50%) translateX(0) !important;
+      transition-delay: 1s;
+    }
+
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .social-item {
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+    .social-item i {
+      font-size: 38px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-item span {
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .social-item:hover {
+      transform: scale(1.08);
+    }
+
+    .social-item:hover i {
+      transform: scale(1.2);
+      color: #fff;
+    }
+
+    /* Цвета для соцсетей */
+    .vk {
+      background-color: #0077ff;
+    }
+
+    .telegram {
+      background-color: #27a7e7;
+    }
+
+    .social-item.instagram {
+      background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+    }
+
+    .social-item img {
+      width: 55px;
+      height: 55px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+      color: #111;
+      
+    }
+
+    .social-item:hover img {
+      transform: scale(1.2);
+    }
+
+    .gis {
+      background-color: rgb(166, 206, 56);
+      color: #111;
+    }
+
+    .yandex {
+      background-color: #ffcc00;
+      color: #111;
+    }
+
+
+    .social-item i,
+    {
+      width: 40px;
+      height: 40px;
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      object-fit: contain;
+    }
+
+
+
+
+
+    /* Анимация иконок меню при переходе */
+    .menu a.active {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+    <ul class="menu">
+      <li><a href="#p1" class="icon" id="seis"><img src="Union.svg" alt="Logo"></i></a></li>
+      <li><a href="#p2" class="fa-solid fa-wine-bottle"></i></a></li>
+      <li><a href="#p3" class="fa-solid fa-burger"></i></a></li>
+      <li><a href="#p4" class="fa-solid fa-location-dot"></i></a></li>
+      <li><a href="#p5" class="fa-solid fa-hashtag"></i></a></li>
+      <li><a href="#p6" class="fa-solid fa-balloons"></i></a></li>
+    </ul>
+
+
+  <div class="pages">
+    <section id="p1" class="page active">
+      <div class="icon" id="seis"><img src="logo.svg" alt="Logo" ></div>
+      <div class="title">ДУБЛИН ПАБ</div>
+      <div class="hint">ВСЕ ЕГО ЖДАЛИ<br>И ОН ВЕРНУЛСЯ!</div>
+    </section>
+
+    <section id="p2" class="page">
+      <div class="icon fa-solid fa-wine-bottle"></div>
+      <div class="title">БАРНАЯ КАРТА</div>
+      <div class="hint">
+        А ТЫ ПРОБОВАЛ<br>
+        НАШИ НОВЫЕ НАПИТОЧКИ?
+      </div>
+
+      <div class="restaurant-menu">
+
+        <div class="categories-tabs">
+          <button class="category-toggle active" data-target="cat1">
+            <i class="fas fa-beer-mug-empty"></i> Пиво Розливное
+          </button>
+          <button class="category-toggle" data-target="cat2">
+            <i class="fas fa-beer-mug-empty"></i> Пиво Бутылочное
+          </button>
+          <button class="category-toggle" data-target="cat3">
+            <i class="fas fa-martini-glass-citrus"></i> Коктейли Авторские
+          </button>
+          <button class="category-toggle" data-target="cat4">
+            <i class="fas fa-whiskey-glass"></i> Коктейли Классические
+          </button>
+          <button class="category-toggle" data-target="cat5">
+            <i class="fas fa-martini-glass"></i> Бренд миксы
+          </button>
+          <button class="category-toggle" data-target="cat6">
+            <i class="fas fa-whiskey-glass"></i> Шоты и Настойки
+          </button>
+          <button class="category-toggle" data-target="cat7">
+            <i class="fas fa-tint"></i> Безалкогольные напитки
+          </button>
+          <button class="category-toggle" data-target="cat8">
+            <i class="fas fa-coffee"></i> Чай
+          </button>
+        </div>
+
+        <div class="categories-content">
+          <ul class="category-list active" id="cat1">
+            <li>Dublin Amber</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Dublin Gold</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Dublin Oil</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Krone Blanche Biere</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Krusovice Svetle</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Black Sheep</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Stiegl Goldbrau</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>BrewDog Punk IPA</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            
+          </ul>
+
+          <ul class="category-list" id="cat2">
+            <li>Лагер — 180 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Портер — 190 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Лагер — 180 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Портер — 190 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Лагер — 180 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>Портер — 190 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <br>
+            <li>IPA — 200 ₽</li>
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+          </ul>
+
+          <ul class="category-list" id="cat3">
+            <li>“Магнум” — 350 ₽</li>
+            <li>“Закат” — 320 ₽</li>
+            <li>“Огненный свет” — 400 ₽</li>
+          </ul>
+
+          <ul class="category-list" id="cat4">
+            <li>Мохито — 300 ₽</li>
+            <li>Пина Колада — 320 ₽</li>
+            <li>Маргарита — 330 ₽</li>
+          </ul>
+
+          <ul class="category-list" id="cat5">
+            <li>Джин-тоник — 280 ₽</li>
+            <li>Виски-кола — 290 ₽</li>
+          </ul>
+
+          <ul class="category-list" id="cat6">
+            <li>Текила — 150 ₽</li>
+            <li>Настойка клюквенная — 170 ₽</li>
+          </ul>
+
+          <ul class="category-list" id="cat7">
+            <li>Сок апельсиновый — 120 ₽</li>
+            <li>Минеральная вода — 100 ₽</li>
+            <li>Кола — 110 ₽</li>
+          </ul>
+
+          <ul class="category-list" id="cat8">
+            <li>Чёрный чай — 150 ₽</li>
+            <li>Зелёный чай — 160 ₽</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="p3" class="page">
+      <div class="icon fa-solid fa-burger"></div>
+      <div class="title">КУХНЯ</div>
+      <div class="hint">
+        А ТЫ ПРОБОВАЛ<br>
+        НАШИ ЗАКУСОЧКИ?
+      </div>
+
+      <div class="restaurant-menu">
+        <div class="categories-tabs">
+          <button class="category-toggle active" data-target="cat1">
+            <i class="fas fa-utensils"></i> Горячее
+          </button>
+          <button class="category-toggle" data-target="cat2">
+            <i class="fas fa-drumstick-bite"></i> Закуски
+          </button>
+          <button class="category-toggle" data-target="cat3">
+            <i class="fa-solid fa-burger"></i> Бургеры
+          </button>
+          <button class="category-toggle" data-target="cat4">
+            <i class="fas fa-egg"></i> Завтраки
+          </button>
+        </div>
+
+        <div class="categories-content">
+          <ul class="category-list active" id="cat1">
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+          </ul>
+
+          <ul class="category-list" id="cat2">
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+          </ul>
+
+          <ul class="category-list" id="cat3">
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+          </ul>
+
+          <ul class="category-list" id="cat4">
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+            <div class="item">
+              <li>Dublin Gold</li>
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="page" id="p4">
+      <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="title">Как нас найти</div>
+      <div class="hint">Наш адрес: г. Сургут, ул. Примерная, 123</div>
+
+      <div class="map-box">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?ll=73.377851%2C61.250642&z=16&pt=73.377851,61.250642,pm2rdm"
+          width="100%"
+          height="400"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <section id="p5" class="page">
+      <div class="icon fa-solid fa-hashtag"></div>
+      <div class="title">БАРНАЯ КАРТА</div>
+      <div class="hint">
+        А ТЫ ПРОБОВАЛ<br>
+        НАШИ НОВЫЕ НАПИТОЧКИ?
+      </div>
+
+      <div class="social-links">
+        <a href="#" class="social-item vk">
+          <i class="fab fa-vk"></i>
+          <span>ВКонтакте</span>
+        </a>
+        <a href="#" class="social-item telegram">
+          <i class="fab fa-telegram"></i>
+          <span>Telegram</span>
+        </a>
+        <a href="#" class="social-item instagram">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+        <a href="#" class="social-item gis">
+          <img src="2gis Logo.svg" alt="2ГИС">
+          <span>2ГИС</span>
+        </a>
+        <a href="#" class="social-item yandex">
+          <i class="fas fa-location-arrow"></i>
+          <span>Я.Карты</span>
+        </a>
+      </div>
+
+
+    </section>
+
+    <section id="p6" class="page">
+      <div class="icon fa-solid fa-balloons"></div>
+      <div class="title">IVENTS</div>
+      <div class="hint">
+        СКОРО...
+      </div>
+
+      
+    </section>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.menu a');
+    const pages = document.querySelectorAll('.page');
+
+    function setActivePage(hash) {
+      pages.forEach(p => p.classList.remove('active'));
+      links.forEach(l => l.classList.remove('active'));
+
+      const targetPage = document.querySelector(hash);
+      const targetLink = document.querySelector(`.menu a[href="${hash}"]`);
+
+      if (targetPage && targetLink) {
+        targetPage.classList.add('active');
+        targetLink.classList.add('active');
+      }
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (link.id === 'index') {
+          // Для лого — не отменять действие, переходить как обычно
+          return;
+        }
+        e.preventDefault();
+        setActivePage(link.getAttribute('href'));
+        history.replaceState(null, null, link.getAttribute('href'));
+      });
+    });
+
+    // При загрузке страницы
+    window.addEventListener('load', () => {
+      const hash = window.location.hash || '#p1';
+      setActivePage(hash);
+    });
+
+
+
+
+
+    document.querySelectorAll('.category-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const list = button.nextElementSibling;
+        list.classList.toggle('open');
+
+        const arrow = button.querySelector('.arrow');
+        if (list.classList.contains('open')) {
+          arrow.textContent = '▲';
+        } else {
+          arrow.textContent = '▼';
+        }
+      });
+    });
+
+    document.querySelectorAll('.categories-tabs').forEach(tabsContainer => {
+      const buttons = tabsContainer.querySelectorAll('.category-toggle');
+      const contentContainer = tabsContainer.nextElementSibling; // предполагаем, что контент идёт сразу после табов
+      const lists = contentContainer.querySelectorAll('.category-list');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (button.classList.contains('active')) return;
+
+          buttons.forEach(b => b.classList.remove('active'));
+          lists.forEach(list => list.classList.remove('active'));
+
+          button.classList.add('active');
+          const targetId = button.getAttribute('data-target');
+          const targetList = contentContainer.querySelector(`#${targetId}`);
+          if (targetList) targetList.classList.add('active');
+        });
+      });
+    });
+
+
+
+
+    document.querySelectorAll('.category-list').forEach(list => {
+      const itemsCount = list.querySelectorAll('li').length;
+      list.style.columnCount = itemsCount > 10 ? '3' : '2';
+    });
+
+
+
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        link.classList.add('jump');
+        link.addEventListener('animationend', () => {
+          link.classList.remove('jump');
+        }, { once: true });
+      });
+    });
+  </script>
+
+</body>
+</html>
