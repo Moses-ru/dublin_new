@@ -1,4 +1,13 @@
 /* ========== ОБЩИЕ НАСТРОЙКИ ДЛЯ МОБИЛЬНОГО ========== */
+@media (max-width: 768px) {
+  .page {
+    transform: scale(0.95);
+    transform-origin: top center;
+  }
+}
+
+
+
 @media (max-width: 900px) {
   * {
     box-sizing: border-box;
