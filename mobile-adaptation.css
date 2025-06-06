@@ -1,8 +1,4 @@
 /* ========== ОБЩИЕ НАСТРОЙКИ ДЛЯ МОБИЛЬНОГО ========== */
-
-
-
-
 @media (max-width: 900px) {
   * {
     box-sizing: border-box;
@@ -19,7 +15,7 @@
 
   .map-box iframe {
     width: 90%;
-    height: 400px;
+    height: 300px;
     border-radius: 12px;
     margin-left: auto;
     margin-right: auto;
@@ -39,7 +35,7 @@
     bottom: 0;
     top: auto !important;
     width: calc(100vw - 24px);
-    height: 64px;
+    
     margin: 0 auto !important;
     padding: 0 12px;
     background: rgba(44, 44, 44, 0.94);
@@ -222,7 +218,7 @@
 /* ========== МАЛЕНЬКИЕ ЭКРАНЫ ========== */
 @media (max-width: 420px) {
   .menu {
-    height: 52px;
+    
     padding: 0 3px;
     border-radius: 13px 13px 0 0;
   }
@@ -263,6 +259,7 @@
     padding: 4px 0 2px 0;
   }
 }
+
 
 
 /* ========== КОЛОНКИ КАТЕГОРИЙ В ЗАВИСИМОСТИ ОТ ШИРИНЫ ========== */
@@ -336,5 +333,21 @@
 }
 
 
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
 
+  .social-item {
+    padding: 8px 10px;
+    font-size: 0.9em;
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-item i, .social-item img {
+    width: 15px;
+    height: 15px;
+  }
+}
 
