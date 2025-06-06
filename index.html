@@ -1031,8 +1031,8 @@
 
     // При загрузке страницы
     window.addEventListener('load', () => {
-      const hash = window.location.hash || '#p1';
-      setActivePage(hash);
+      setActivePage('#p1');
+      history.replaceState(null, null, '#p1');
     });
 
 
