@@ -230,7 +230,7 @@
     }
 
     .page .title {
-      font-size: 38px;
+      font-size: 35px;
       font-weight: bold;
       
     }
@@ -481,6 +481,16 @@
       background-repeat: no-repeat; /* или background-image */
     }
 
+    #p7 {
+    
+    background-image: url(hap.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* или background-image */
+  }
+
+    
+
     #t6:target #p6 {
       transform: translateX(-190%);
       transition-delay: 0.4s;
@@ -514,8 +524,8 @@
     }
 
     .social-item {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       border-radius: 20px;
       color: #fff;
       text-decoration: none;
@@ -528,13 +538,13 @@
     }
 
     .social-item i {
-      font-size: 38px;
+      font-size: 36px;
       margin-bottom: 10px;
       transition: transform 0.3s ease;
     }
 
     .social-item span {
-      font-size: 16px;
+      font-size: 12px;
       color: #fff;
     }
 
@@ -659,6 +669,7 @@
       <li><a href="#p1" class="icon" id="seis"><img src="Union.svg" alt="Logo"></i></a></li>
       <li><a href="#p2" class="fa-solid fa-wine-bottle"></i></a></li>
       <li><a href="#p3" class="fa-solid fa-burger"></i></a></li>
+      <li><a href="#p7" class="fa-solid fa-smoke"></i></a></li>
       <li><a href="#p4" class="fa-solid fa-location-dot"></i></a></li>
       <li><a href="#p5" class="fa-solid fa-hashtag"></i></a></li>
       <li><a href="#p6" class="fa-solid fa-balloons"></i></a></li>
@@ -671,6 +682,7 @@
       <div class="title">ДУБЛИН ПАБ</div>
       <div class="hint">ВСЕ ЕГО ЖДАЛИ<br>И ОН ВЕРНУЛСЯ!</div>
     </section>
+    
 
     <section id="p2" class="page">
       <div class="icon fa-solid fa-wine-bottle"></div>
@@ -684,168 +696,448 @@
 
         <div class="categories-tabs">
           <button class="category-toggle active" data-target="cat1">
-            <i class="fas fa-beer-mug-empty"></i> Пиво Розливное
+            <i class="fas fa-beer-mug-empty"></i> Розливное
           </button>
           <button class="category-toggle" data-target="cat2">
-            <i class="fas fa-beer-mug-empty"></i> Пиво Бутылочное
+            <i class="fas fa-beer-mug-empty"></i> Бутылочное
           </button>
           <button class="category-toggle" data-target="cat3">
-            <i class="fas fa-martini-glass-citrus"></i> Коктейли Авторские
+            <i class="fas fa-martini-glass-citrus"></i> Авторские
           </button>
           <button class="category-toggle" data-target="cat4">
-            <i class="fas fa-whiskey-glass"></i> Коктейли Классические
+            <i class="fas fa-whiskey-glass"></i> Классические
           </button>
           <button class="category-toggle" data-target="cat5">
             <i class="fas fa-martini-glass"></i> Бренд миксы
           </button>
+          
+          
           <button class="category-toggle" data-target="cat6">
             <i class="fas fa-whiskey-glass"></i> Шоты и Настойки
           </button>
           <button class="category-toggle" data-target="cat7">
-            <i class="fas fa-tint"></i> Безалкогольные напитки
+            <i class="fas fa-tint"></i> Безалко
           </button>
           <button class="category-toggle" data-target="cat8">
-            <i class="fas fa-coffee"></i> Чай
+            <i class="fas fa-coffee"></i> Чай&Кофе
           </button>
         </div>
 
         <div class="categories-content">
           <ul class="category-list active" id="cat1">
-            <li>
-              Dublin Amber
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Amber
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Amber
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Amber
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
+            <!-- Разливное -->
+          <li>
+            DUBLIN AMBER
+            <div class="description">Фильтрованное ячменное | 4,0%</div>
+          </li>
+          <li>
+            DUBLIN GOLD
+            <div class="description">Нефильтрованное пшеничное | 4,2%</div>
+          </li>
+          <li>
+            DUBLIN OIL
+            <div class="description">Тёмный эль | 5,2%</div>
+          </li>
+          <li>
+            KRONE BLANCHE BIERE
+            <div class="description">Бланш | 4,5%</div>
+          </li>
+          <li>
+            KRUSOVICE SVETLE
+            <div class="description">Пилснер | 4,2%</div>
+          </li>
+          <li>
+            BLACK SHEEP
+            <div class="description">Ирландский стаут | 4,0%</div>
+          </li>
+          <li>
+            STIEGL GOLDBRAU
+            <div class="description">Австрийский светлый лагер | 4,9%</div>
+          </li>
+          <li>
+            BREWDOG PUNK IPA
+            <div class="description">Индийский светлый эль | 5,4%</div>
+          </li>
             
             
           </ul>
 
           <ul class="category-list" id="cat2">
             <li>
-              Лагер — 180 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              BLUE MOON
+              <div class="description">Чешский витбир | 5,4%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              ASAHI SUPER DRY
+              <div class="description">Японский рисовый лагер, Италия | 5,2%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              JAWS CITRAIZEN
+              <div class="description">Российский кристаллвайцен | 6%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              JAWS APA
+              <div class="description">Американский светлый эль, Россия | 5,5%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              JAWS IPA
+              <div class="description">Индийский светлый эль, Россия | 5,5%</div>
+            </li>
+          
+            <!-- Правая колонка -->
+            <li>
+              LEFFE BLONDE
+              <div class="description">Бельгийский светлый эль | 6,6%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              LEFFE BRUNE
+              <div class="description">Бельгийский тёмный эль | 6,5%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              СИДР "ДАЛЬНЯЯ ДАЧА" №2
+              <div class="description">Российский яблочный сидр | 5%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              BUDWEISER BUDVAR
+              <div class="description">Чешский лагер | 5%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              BOON KRIEK
+              <div class="description">Бельгийский крик | 4%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              CORNELISSEN KRIEKENBIER
+              <div class="description">Бельгийское вишнёвое | 4,5%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              GUINNESS DRAUGHT
+              <div class="description">Ирландский стаут | 4,2%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              EINSIEDLER WEISSBIER
+              <div class="description">Немецкий вайсбир | 5,2%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              LIEBENBRAU HELLES
+              <div class="description">Мюнхенский хеллес | 5,1%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              NEWCASTLE BROWN ALE
+              <div class="description">Английский коричневый эль | 4,7%</div>
             </li>
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              HOFBRÄU DUNKEL
+              <div class="description">Мюнхенский дункель | 5,5%</div>
             </li>
+          
+            <!-- Безалкогольное -->
             <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Портер — 190 ₽
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
+              CLAUSTHALER ORIGINAL
+              <div class="description">Немецкий лагер</div>
             </li>
             
           </ul>
 
           <ul class="category-list" id="cat3">
-            <li>“Магнум” — 350 ₽</li>
-            <li>“Закат” — 320 ₽</li>
-            <li>“Огненный свет” — 400 ₽</li>
+            <!-- Авторские коктейли -->
+          <li>
+            JALISCO
+            <div class="description">Текила, лагер, маракуйя, имбирь, цитрус</div>
+          </li>
+          <li>
+            ROSA
+            <div class="description">Джин сливочный соджу, ликер мараскино, роза</div>
+          </li>
+          <li>
+            PEACH SOUR
+            <div class="description">Шотландский виски, кордиал персик-щавель, цитрус</div>
+          </li>
+          <li>
+            VERY BROWN
+            <div class="description">Кедровая настойка, ликер амаретто, вишня, цитрус</div>
+          </li>
+          <li>
+            CLOCKWORK ORANGE
+            <div class="description">Кампари, оранчелло, гренадин</div>
+          </li>
+          <li>
+            LAST OF SUN
+            <div class="description">Калвадос, апельсиновый ликер, кордиал "яблоко на белом вине"</div>
+          </li>
           </ul>
 
           <ul class="category-list" id="cat4">
-            <li>Мохито — 300 ₽</li>
-            <li>Пина Колада — 320 ₽</li>
-            <li>Маргарита — 330 ₽</li>
+            <!-- Классические коктейли -->
+          <li>
+            NEGRONI
+            <div class="description">Джин, кампари, мартин росо</div>
+          </li>
+          <li>
+            OLD FASHIONED
+            <div class="description">Бурбон, ангостура биттер, сахар</div>
+          </li>
+          <li>
+            PAPER PLANE
+            <div class="description">Бурбон, амаро аверна, апероль, лимон</div>
+          </li>
+          <li>
+            PENICILLIN
+            <div class="description">Шотландский виски, мед, имбирь, лимон, ликер йодо</div>
+          </li>
+          <li>
+            MARY PICKFORD
+            <div class="description">Белый ром, ананасовый сок, ликер мараскино, гренадин</div>
+          </li>
+          <li>
+            CLOVER CLUB
+            <div class="description">Джин, малина, лимон</div>
+          </li>
+          <li>
+            COSMOPOLITAN
+            <div class="description">Водка, апельсиновый ликер, клюквенный морс, лимон</div>
+          </li>
+          <li>
+            MAI-TAI
+            <div class="description">Пряный ром, апельсиновый ликер, ликер амаретто, миндаль, апельсиновый сок</div>
+          </li>
+          <li>
+            PORN STAR MARTINI
+            <div class="description">Водка, маракуйя, ваниль, брют</div>
+          </li>
+          <li>
+            FRENCH 75
+            <div class="description">Джин, брют, лимон, сахар</div>
+          </li>
+          <li>
+            WHITE RUSSIAN
+            <div class="description">Водка, кофейный ликер, сливки</div>
+          </li>
+          <li>
+            GODFATHER
+            <div class="description">Шотландский виски, ликер амаретто</div>
+          </li>
+          <li>
+            WHISKEY SOUR
+            <div class="description">Бурбон, лимон, сахар</div>
+          </li>
+          <li>
+            DAIQUIRI
+            <div class="description">Белый ром, лайм, сахар</div>
+          </li>
+          <li>
+            MARGARITA
+            <div class="description">Текила, апельсиновый ликер, лайм, сахар</div>
+          </li>
+          <li>
+            WHITE LADY
+            <div class="description">Джин, апельсиновый ликер, лимон</div>
+          </li>
+          <li>
+            ESPRESSO MARTINI
+            <div class="description">Водка, кофейный ликер, эспрессо, сахар</div>
+          </li>
+          <li>
+            IRISH COFFEE
+            <div class="description">Ирландский виски, кофе, сливки, сахар</div>
+          </li>
           </ul>
 
           <ul class="category-list" id="cat5">
-            <li>Джин-тоник — 280 ₽</li>
-            <li>Виски-кола — 290 ₽</li>
+            <li>Aperol Spritz</li>
+            <li>Campari Spritz</li>
+            <li>Sarti Spritz</li>
+            <li>Martini Fiero & Tonic</li>
+            <li>Bosford & Tonic</li>
+            <li>Oakheart & Cola</li>
+            <li>William Lawson's & Cola</li>
+            <li>Long Island Iced Tea</li>
+            <li>Watermelon Gin</li>
           </ul>
 
           <ul class="category-list" id="cat6">
-            <li>Текила — 150 ₽</li>
-            <li>Настойка клюквенная — 170 ₽</li>
+            <li>
+              B-52
+              <div class="description">Кофейный, сливочный и апельсиновый ликёры</div>
+            </li>
+            <li>
+              B-53
+              <div class="description">Кофейный и сливочный ликёры, абсент</div>
+            </li>
+            <li>
+              HIROSHIMA
+              <div class="description">Самбука, сливочный ликёр, абсент, гренадин</div>
+            </li>
+            <li>
+              BLISS
+              <div class="description">Малина, ликёр мараскино, апероль, цитрус</div>
+            </li>
+          
+            <!-- Настойки -->
+            <li>
+              ЛИМОНЧЕЛЛО
+              <div class="description"></div>
+            </li>
+            <li>
+              ВИШНЯ МАРАСКИНО
+              <div class="description"></div>
+            </li>
+            <li>
+              СМОРОДИНА – ТИМЬЯН
+              <div class="description"></div>
+            </li>
+            <li>
+              СЛИВОЧНАЯ ХАЛВА
+              <div class="description"></div>
+            </li>
+            <li>
+              ЛИСТЬЯ СМОРОДИНЫ – САГАН ДАЙЛЯ
+              <div class="description"></div>
+            </li>
+            <li>
+              МАРАКУЙЯ
+              <div class="description"></div>
+            </li>
+            <li>
+              МАЛИНА – ЙОГУРТ
+              <div class="description"></div>
+            </li>
+            <li>
+              КЕДРОВАЯ
+              <div class="description"></div>
+            </li>
           </ul>
 
           <ul class="category-list" id="cat7">
-            <li>Сок апельсиновый — 120 ₽</li>
-            <li>Минеральная вода — 100 ₽</li>
-            <li>Кола — 110 ₽</li>
+            <!-- Безалкогольные коктейли -->
+            <li>
+              ORANGINA
+              <div class="description">Домашний газированный напиток на основе апельсина и мандарина</div>
+            </li>
+            <li>
+              MELON CALPIS
+              <div class="description">Освежающий милквош со вкусом дыни</div>
+            </li>
+            <li>
+              PEACH & SAGE ICED TEA
+              <div class="description">Холодный черный чай на основе персика и шалфея</div>
+            </li>
+            <li>
+              ACAI & GRAPE
+              <div class="description">Лимонад со вкусом асаи и винограда</div>
+            </li>
+            <!-- Напитки -->
+          <li>
+            RICH
+            <div class="description">Кола, тоник, биттер лимон</div>
+          </li>
+          <li>
+            RED BULL
+            <div class="description">Классический, без сахара, арбузный</div>
+          </li>
+          <li>
+            СОК
+            <div class="description">Апельсиновый, ананасовый, яблочный, вишневый</div>
+          </li>
+          <li>
+            МОРС
+            <div class="description">Клюквенный, смородиновый</div>
+          </li>
+          <li>
+            ВОДА ALTAY KÖL
+            <div class="description">Газированная, негазированная</div>
+          </li>
           </ul>
 
           <ul class="category-list" id="cat8">
-            <li>Чёрный чай — 150 ₽</li>
-            <li>Зелёный чай — 160 ₽</li>
+            <!-- Чай 750 мл -->
+          <li>
+            ЦЕЙЛОН
+            <div class="description"></div>
+          </li>
+          <li>
+            ТЕ ГУАНЬ ИНЬ
+            <div class="description"></div>
+          </li>
+          <li>
+            ЖАСМИН
+            <div class="description"></div>
+          </li>
+          <li>
+            ЭРЛ ГРЕЙ
+            <div class="description"></div>
+          </li>
+          <li>
+            МОЛОЧНЫЙ УЛУН
+            <div class="description"></div>
+          </li>
+          <li>
+            ДА ХУН ПАО
+            <div class="description"></div>
+          </li>
+          <li>
+            РОЙБУШ
+            <div class="description"></div>
+          </li>
+          <li>
+            ШУ ПУЭР
+            <div class="description"></div>
+          </li>
+          <li>
+            ГАБА
+            <div class="description"></div>
+          </li>
+
+          <!-- Авторский чай 750 мл -->
+          <li>
+            ОБЛЕПИХОВЫЙ
+            <div class="description"></div>
+          </li>
+          <li>
+            ВИШНЕВЫЙ РОЙБУШ
+            <div class="description"></div>
+          </li>
+          <li>
+            ПЕРСИК – ШАЛФЕЙ
+            <div class="description"></div>
+          </li>
+          <li>
+            ЧЕРНАЯ СМОРОДИНА – МАРАКУЙЯ
+            <div class="description"></div>
+          </li>
+          <li>
+            ГОДЖИ – ЕЖЕВИКА
+            <div class="description"></div>
+          </li>
+
+          <!-- Кофе -->
+          <li>
+            ЭСПРЕССО
+            <div class="description"></div>
+          </li>
+          <li>
+            АМЕРИКАНО
+            <div class="description"></div>
+          </li>
+          <li>
+            ФЛЭТ УАЙТ
+            <div class="description"></div>
+          </li>
+          <li>
+            КАПУЧИНО
+            <div class="description"></div>
+          </li>
+          <li>
+            ЛАТТЕ
+            <div class="description"></div>
+          </li>
+          <li>
+            РАФ
+            <div class="description"></div>
+          </li>
+          <li>
+            АЙС ЛАТТЕ
+            <div class="description"></div>
+          </li>
           </ul>
         </div>
 
@@ -863,78 +1155,73 @@
       <div class="restaurant-menu">
         <div class="categories-tabs">
           <button class="category-toggle active" data-target="cat1">
-            <i class="fas fa-utensils"></i> Горячее
+            <i class="fas fa-utensils"></i> ЗАКУСКИ
           </button>
           <button class="category-toggle" data-target="cat2">
-            <i class="fas fa-drumstick-bite"></i> Закуски
+            <i class="fas fa-drumstick-bite"></i> ФРИТЮР
           </button>
           <button class="category-toggle" data-target="cat3">
-            <i class="fa-solid fa-burger"></i> Бургеры
+            <i class="fa-solid fa-burger"></i> АССОРТИ
           </button>
           <button class="category-toggle" data-target="cat4">
-            <i class="fas fa-egg"></i> Завтраки
+            <i class="fas fa-egg"></i> САЛАТЫ
+          </button>
+          <button class="category-toggle" data-target="cat5">
+            <i class="fas fa-egg"></i> СОУСЫ
           </button>
         </div>
     
         <div class="categories-content">
           <ul class="category-list active" id="cat1">
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
+            <li>ТАР ТАР ИЗ ГОВЯДИНЫ</li>
+            <li>РОСТБИФ ИЗ ГОВЯДИНЫ</li>
+            <li>СТРОГАНИНА ИЗ МУКСУНА</li>
+            <li>ГРУЗДИ СО СМЕТАНОЙ</li>
+            <li>ФОРЕЛЬ СЛАБОСОЛЁНАЯ</li>
+            <li>СЕЛЬДЬ С КАРТОФЕЛЕМ И ГРЕНКАМИ</li>
+            <li>ЖУЛЬЕН С ЦЫПЛЁНКОМ И ГРИБАМИ</li>
+            <li>ЗАПЕЧЁННЫЙ КАМАМБЕР</li>
+            <li>КУРИНЫЕ КРЫЛЬЯ BBQ</li>
           </ul>
     
           <ul class="category-list" id="cat2">
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
+            <!-- Фритюр -->
+          <li>КАРТОФЕЛЬ ФРИ</li>
+          <li>КАРТОФЕЛЬНЫЕ ДОЛЬКИ</li>
+          <li>ЧЕСНОЧНЫЕ ГРЕНКИ</li>
+          <li>КОЛЬЦА КАЛЬМАРА</li>
+          <li>ЛУКОВЫЕ КОЛЬЦА</li>
+          <li>КРЕВЕТКИ ПАНКО</li>
+          <li>СЫРНЫЕ ШАРИКИ</li>
+          <li>КУРИНЫЕ НАГЕТСЫ</li>
           </ul>
     
           <ul class="category-list" id="cat3">
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
+            <!-- Ассорти -->
+          <li>РЫБНОЕ</li>
+          <li>МЯСНОЕ</li>
+          <li>РАЗНОСОЛЫ</li>
+          <li>СВЕЖИЕ ОВОЩИ</li>
+          <li>СЫРНОЕ</li>
+          <li>ФРУКТОВОЕ</li>
           </ul>
     
           <ul class="category-list" id="cat4">
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
-            <li>
-              Dublin Gold
-              <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </li>
+            <!-- Салаты -->
+          <li>ЦЕЗАРЬ С КУРИЦЕЙ</li>
+          <li>ЦЕЗАРЬ С ЛОСОСЕМ</li>
+          <li>САЛАТ С УТКОЙ И ПЕЧЁНЫМ ЯБЛОКОМ</li>
+          <li>САЛАТ С РОСТБИФОМ</li>
+          <li>ТЁПЛЫЙ САЛАТ СО СВЕКЛОЙ И АПЕЛЬСИНОМ</li>
+          <li>САЛАТ ЮЖНЫЕ КРАЯ</li>
+          <li>САЛАТ С КРЕВЕТКАМИ И БАКЛАЖАНОМ ФРИ</li>
+          </ul>
+
+          <ul class="category-list" id="cat5">
+            <!-- Соусы -->
+          <li>КЕТЧУП</li>
+          <li>СЛАДКИЙ ЧИЛИ</li>
+          <li>БАРБЕКЮ</li>
           </ul>
         </div>
       </div>
@@ -942,8 +1229,8 @@
 
     <div class="page" id="p4">
       <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-      <div class="title">Как нас найти</div>
-      <div class="hint">Наш адрес: г. Сургут, ул. Примерная, 123</div>
+      <div class="title">ЛОКАЦИЯ</div>
+      <div class="hint">Наш адрес:<br> г. Сургут, ул. Примерная, 123</div>
 
       <div class="map-box">
         <iframe
@@ -998,6 +1285,39 @@
 
       
     </section>
+
+
+    <section id="p7" class="page">
+      <div class="icon fa-solid fa-smoke"></div>
+      <div class="title">КАЛЬЯНЫ</div>
+      <div class="hint">
+        ПОДЫМИМ?
+      </div>
+    
+      <div class="restaurant-menu">
+        <div class="categories-tabs">
+          <button class="category-toggle active" data-target="cat1">
+            <i class="fas fa-utensils"></i> Кальяны
+          </button>
+
+        </div>
+    
+        <div class="categories-content">
+          <ul class="category-list active" id="cat1">
+            <li>Классика - 1300₽</li>
+            <li>Премиум - 1600₽</li>
+            <li>Парфюм - 2200₽</li>
+            <li>На Гранате - 2200₽</li>
+            <li>На Грейпфруте - 2400₽</li>
+            <li>На Ананасе - 2600₽</li>
+          </ul>
+        </div>
+      </div>
+
+      
+    </section>
+
+
   </div>
 
   <script>
@@ -1031,8 +1351,8 @@
 
     // При загрузке страницы
     window.addEventListener('load', () => {
-      setActivePage('#p1');
-      history.replaceState(null, null, '#p1');
+      const hash = window.location.hash || '#p1';
+      setActivePage(hash);
     });
 
 
