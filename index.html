@@ -1369,8 +1369,9 @@
 
     // При загрузке страницы
     window.addEventListener('load', () => {
-      const hash = window.location.hash || '#p1';
-      setActivePage(hash);
+      setTimeout(() => {
+        location.hash = '#p1';
+      }, 100); // Немного задержки, чтобы не мешать загрузке
     });
 
 
