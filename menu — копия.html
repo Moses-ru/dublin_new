@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ДУБЛИН</title>
+  <link rel="icon" href="logo.svg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="mobile-adaptation.css">
@@ -231,6 +232,7 @@
     .page .title {
       font-size: 38px;
       font-weight: bold;
+      
     }
 
     .page .hint {
@@ -285,22 +287,35 @@
     }
 
     .restaurant-menu {
-      max-height: 60vh;
-      overflow-y: auto;
-      margin-top: 30px;
+      font-size: 16px;
+      margin-top: 20px;
       background: rgba(0,0,0,0.5);
       border-radius: 8px;
-      padding: 10px 20px;
-      max-width: 700px;
+      padding: 8px 15px;
+      max-width: 800px;
+      width: 90%;
       color: #fff;
-      font-size: 22px;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      max-height: calc(100vh - 400px); /* Автоматическая подстройка под экран */
+      min-height: 200px; /* Минимальная высота */
+    }
+
+    /* Стиль скроллбара */
+    .categories-content::-webkit-scrollbar {
+      width: 6px;
+    }
+    .categories-content::-webkit-scrollbar-thumb {
+      background: #ffc107;
+      border-radius: 3px;
     }
 
     .categories-tabs {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      gap: 8px;
     }
 
     .category-toggle {
@@ -318,6 +333,7 @@
       min-width: 140px;
       text-align: center;
       white-space: nowrap;
+      font-size: 14px;
     }
 
     .category-toggle:hover {
@@ -331,53 +347,10 @@
       cursor: default;
     }
 
-    .categories-content {
-      min-height: 150px;
-    }
-
-    .category-list {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      padding-left: 20px;
-      margin: 0;
-      list-style: none;
-      transition: max-height 0.5s ease, opacity 0.5s ease;
-
-      /* для длинных списков добавим колонки */
-      column-count: 1;          /* по умолчанию 1 колонка */
-      column-gap: 2em;         /* расстояние между колонками */
-    }
-
-    .category-list .item {
-      break-inside: avoid;
-      /* для браузеров на базе Webkit */
-      -webkit-column-break-inside: avoid;
-      page-break-inside: avoid;
-      padding-bottom: 0.5em; /* небольшой отступ между элементами */
-    }
-
-    /* Когда список активен и большой — 2 колонки */
-    .category-list.active {
-      max-height: none; /* больше, чем самый длинный список */
-      opacity: 1;
-      margin-top: 10px;
-      column-count: 2; /* вот тут переход в 2 колонки */
-    }
-
-    .category-list .description {
-      font-size: 10px;
-      color: #ccccccd7;
-      margin-top: 4px;
-      line-height: 1.3;
-      font-style: normal;
-      margin-bottom: 15px;
-    }
-
     .category-toggle i {
       margin-right: 8px;
-      font-size: 15px; /* или больше, по желанию */
-      margin-right: 8px; /* немного отступа справа от иконки */
+      font-size: 12px; /* Уменьшаем размер иконки */
+      margin-right: 6px; /* Уменьшаем отступ между иконкой и текстом */
       transition: transform 0.3s ease;
       display: inline-block;
       color: #ffc107;
@@ -393,6 +366,66 @@
       opacity: 1 !important;
       filter: none !important;
     }
+
+    .categories-content {
+      min-height: 150px;
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 5px; /* Для отступа от скроллбара */
+    }
+
+    .category-list {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      transition: all 0.5s ease;
+    }
+
+    .category-list .item {
+      break-inside: avoid;
+      /* для браузеров на базе Webkit */
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      padding-bottom: 0.5em; /* небольшой отступ между элементами */
+    }
+
+    .category-list.active {
+      max-height: 1000px;
+      opacity: 1;
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px 20px;
+      overflow: visible;
+    }
+
+    .category-list li {
+      font-size: 16px; /* Было 22px, уменьшаем до 16px */
+      padding-bottom: 0.3em; /* Уменьшаем отступ между позициями */
+      padding-bottom: 0.5em;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .category-list.active li {
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .category-list .description {
+      font-size: 10px;
+      color: #ccccccd7;
+      margin-top: 2px;
+      line-height: 1.2; /* Уменьшаем межстрочный интервал */
+      font-style: normal;
+      margin-bottom: 15px;
+    }
+
+    
 
     @keyframes jump {
       0%   { transform: translateY(0); }
@@ -551,8 +584,7 @@
     }
 
 
-    .social-item i,
-    {
+    .social-item i{
       width: 40px;
       height: 40px;
       font-size: 40px;
@@ -679,61 +711,108 @@
 
         <div class="categories-content">
           <ul class="category-list active" id="cat1">
-            <li>Dublin Amber</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Dublin Gold</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Dublin Oil</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Krone Blanche Biere</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Krusovice Svetle</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Black Sheep</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Stiegl Goldbrau</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>BrewDog Punk IPA</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>
+              Dublin Amber
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Dublin Amber
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Dublin Amber
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Dublin Amber
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            
             
           </ul>
 
           <ul class="category-list" id="cat2">
-            <li>Лагер — 180 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Портер — 190 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Лагер — 180 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Портер — 190 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Лагер — 180 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>Портер — 190 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
-            <br>
-            <li>IPA — 200 ₽</li>
-            <div class="description">Фильтрованное ячменное | 4,0%</div>
+            <li>
+              Лагер — 180 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            <li>
+              Портер — 190 ₽
+              <div class="description">Фильтрованное ячменное | 4,0%</div>
+            </li>
+            
           </ul>
 
           <ul class="category-list" id="cat3">
@@ -780,7 +859,7 @@
         А ТЫ ПРОБОВАЛ<br>
         НАШИ ЗАКУСОЧКИ?
       </div>
-
+    
       <div class="restaurant-menu">
         <div class="categories-tabs">
           <button class="category-toggle active" data-target="cat1">
@@ -796,71 +875,70 @@
             <i class="fas fa-egg"></i> Завтраки
           </button>
         </div>
-
+    
         <div class="categories-content">
           <ul class="category-list active" id="cat1">
-            <div class="item">
-              <li>Dublin Gold</li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
-            <div class="item">
-              <li>Dublin Gold</li>
+            </li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
-            <div class="item">
-              <li>Dublin Gold</li>
+            </li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
+            </li>
           </ul>
-
+    
           <ul class="category-list" id="cat2">
-            <div class="item">
-              <li>Dublin Gold</li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
-            <div class="item">
-              <li>Dublin Gold</li>
+            </li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
-            <div class="item">
-              <li>Dublin Gold</li>
+            </li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
+            </li>
           </ul>
-
+    
           <ul class="category-list" id="cat3">
-            <div class="item">
-              <li>Dublin Gold</li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
-            <div class="item">
-              <li>Dublin Gold</li>
+            </li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
-            <div class="item">
-              <li>Dublin Gold</li>
+            </li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
+            </li>
           </ul>
-
+    
           <ul class="category-list" id="cat4">
-            <div class="item">
-              <li>Dublin Gold</li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
-            <div class="item">
-              <li>Dublin Gold</li>
+            </li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
-            <div class="item">
-              <li>Dublin Gold</li>
+            </li>
+            <li>
+              Dublin Gold
               <div class="description">Фильтрованное ячменное | 4,0%</div>
-            </div>
+            </li>
           </ul>
         </div>
       </div>
     </section>
-
 
     <div class="page" id="p4">
       <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -880,10 +958,9 @@
 
     <section id="p5" class="page">
       <div class="icon fa-solid fa-hashtag"></div>
-      <div class="title">БАРНАЯ КАРТА</div>
+      <div class="title">СОЦСЕТИ</div>
       <div class="hint">
-        А ТЫ ПРОБОВАЛ<br>
-        НАШИ НОВЫЕ НАПИТОЧКИ?
+        ПОДПИШИСЬ
       </div>
 
       <div class="social-links">
@@ -999,21 +1076,101 @@
 
 
 
-    document.querySelectorAll('.category-list').forEach(list => {
-      const itemsCount = list.querySelectorAll('li').length;
-      list.style.columnCount = itemsCount > 10 ? '3' : '2';
-    });
 
 
 
-    document.querySelectorAll('.menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        link.classList.add('jump');
-        link.addEventListener('animationend', () => {
-          link.classList.remove('jump');
-        }, { once: true });
+
+    function setupMenuTabs() {
+      // Находим все меню на странице
+      const allMenus = document.querySelectorAll('.restaurant-menu');
+      
+      allMenus.forEach(menu => {
+        const tabs = menu.querySelector('.categories-tabs');
+        const content = menu.querySelector('.categories-content');
+        
+        if (!tabs || !content) return;
+
+        // Обработчик кликов только для текущего меню
+        tabs.addEventListener('click', function(e) {
+          const btn = e.target.closest('.category-toggle');
+          if (!btn) return;
+          
+          const targetId = btn.dataset.target;
+          if (!targetId) return;
+          
+          // Удаляем активные классы только в текущем меню
+          menu.querySelectorAll('.category-toggle.active, .category-list.active').forEach(el => {
+            el.classList.remove('active');
+          });
+          
+          // Добавляем активные классы только в текущем меню
+          btn.classList.add('active');
+          menu.querySelector(`#${targetId}`).classList.add('active');
+        });
+
+        // Инициализация первого активного таба для текущего меню
+        const firstTab = tabs.querySelector('.category-toggle.active');
+        if (firstTab) {
+          const targetId = firstTab.dataset.target;
+          if (targetId) {
+            menu.querySelector(`#${targetId}`).classList.add('active');
+          }
+        }
       });
-    });
+    }
+
+    // Инициализация при загрузке
+    document.addEventListener('DOMContentLoaded', setupMenuTabs);
+  
+
+    function adjustMenuHeight() {
+      const restaurantMenus = document.querySelectorAll('.restaurant-menu');
+      const headerHeight = 200; // Примерная высота заголовков и других элементов
+      
+      restaurantMenus.forEach(menu => {
+        const viewportHeight = window.innerHeight;
+        const menuTop = menu.getBoundingClientRect().top;
+        const availableHeight = viewportHeight - menuTop - 20; // 20px отступ снизу
+        
+        menu.style.maxHeight = `${availableHeight}px`;
+      });
+    }
+
+    // Вызываем при загрузке и ресайзе
+    window.addEventListener('load', adjustMenuHeight);
+    window.addEventListener('resize', adjustMenuHeight);
+
+
+
+
+
+
+
+
+    function setupMobileMenu() {
+      if (window.innerWidth <= 768) {
+        const menus = document.querySelectorAll('.restaurant-menu');
+        
+        menus.forEach(menu => {
+          const tabs = menu.querySelector('.categories-tabs');
+          const content = menu.querySelector('.categories-content');
+          
+          // Рассчитываем доступную высоту
+          const viewportHeight = window.innerHeight;
+          const menuRect = menu.getBoundingClientRect();
+          const availableHeight = viewportHeight - menuRect.top - 20;
+          
+          // Устанавливаем высоту
+          menu.style.maxHeight = `${Math.min(availableHeight, 50 * viewportHeight / 100)}px`;
+          content.style.maxHeight = `${parseInt(menu.style.maxHeight) - (tabs?.offsetHeight || 0) - 30}px`;
+        });
+      }
+    }
+
+    // Инициализация
+    window.addEventListener('load', setupMobileMenu);
+    window.addEventListener('resize', setupMobileMenu);
+
   </script>
 
 </body>
